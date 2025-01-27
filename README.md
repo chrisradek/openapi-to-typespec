@@ -1,1 +1,0 @@
-# openapi-to-typespec

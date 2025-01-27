@@ -1,0 +1,49 @@
+{
+  "name": "alloy-typespec",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "main": "dist/src/index.js",
+  "scripts": {
+    "build-src": "babel src -d dist/src --extensions '.ts,.tsx'",
+    "build-test": "babel test -d dist/test --extensions '.ts,.tsx'",
+    "build": "npm run clean && tsc -p . && npm run build-src",
+    "clean": "rimraf ./dist",
+    "watch-src": "babel src -d dist/src --extensions '.ts,.tsx' --watch",
+    "watch-tsc": "tsc -p . --watch",
+    "watch": "concurrently --kill-others \"npm run watch-tsc\" \"npm run watch-src\"",
+    "test": "NODE_ENV=production vitest run",
+    "test-fails": "vitest run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@alloy-js/core": "catalog:",
+    "@types/node": "catalog:",
+    "@typespec/compiler": "catalog:",
+    "@typespec/openapi": "catalog:",
+    "@typespec/openapi3": "catalog:",
+    "change-case": "catalog:",
+    "yaml": "catalog:"
+  },
+  "devDependencies": {
+    "@alloy-js/babel-preset": "catalog:",
+    "@alloy-js/prettier-plugin-alloy": "catalog:",
+    "@babel/cli": "catalog:",
+    "@babel/core": "catalog:",
+    "@babel/preset-typescript": "catalog:",
+    "@rollup/plugin-babel": "catalog:",
+    "concurrently": "catalog:",
+    "prettier": "catalog:",
+    "rimraf": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  },
+  "pnpm": {
+    "overrides": {
+      "esbuild": "0.23"
+    }
+  }
+}
